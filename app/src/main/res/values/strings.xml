@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">AppListaCurso</string>
     <string name="txt_titulo">Aplicativo Lista VIP Curso Android</string>
     <string name="txt_hint_edit_primeiro_nome">Primeiro Nome</string>
@@ -8,4 +9,5 @@
     <string name="txt_button_limpar">LIMPAR</string>
     <string name="txt_button_salvar">SALVAR</string>
     <string name="txt_button_finalizar">FINALIZAR</string>
+
 </resources>
