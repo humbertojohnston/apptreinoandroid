@@ -19,5 +19,11 @@ public class MainActivity extends AppCompatActivity {
 
         pessoa = new Pessoa(); //criou o Objeto pessoa da Classe Pessoa
 
+        //Atribuicao de valores para o objeto pessoa
+        pessoa.setPrimeiroNome("Humberto");
+        pessoa.setSobreNome("Pinheiro");
+        pessoa.setCursoDesejado("Android");
+        pessoa.setTelefoneContato("91981895467");
+
     }
 }
