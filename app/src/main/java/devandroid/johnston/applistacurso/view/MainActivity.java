@@ -3,6 +3,7 @@ package devandroid.johnston.applistacurso.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import devandroid.johnston.applistacurso.R;
 import devandroid.johnston.applistacurso.model.Pessoa;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         outraPessoa.setCursoDesejado("Java");
         outraPessoa.setTelefoneContato("91991895467");
 
-        dadosPessoa = "Primeiro Nome: ";
+     /*   dadosPessoa = "Primeiro Nome: ";
         dadosPessoa += pessoa.getPrimeiroNome();
         dadosPessoa += " Sobrenome: ";
         dadosPessoa += pessoa.getSobreNome();
@@ -48,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
         dadosOutraPessoa += " Sobrenome: " + outraPessoa.getSobreNome();
         dadosOutraPessoa += " Curso Desejado: " + outraPessoa.getCursoDesejado();
         dadosOutraPessoa += " Telefone de Contato: " + outraPessoa.getTelefoneContato();
+*/
+        Log.i("POOAndroid","Objeto pessoa: "+pessoa.toString());
+        Log.i("POOAndroid","Objeto outraPessoa: "+outraPessoa.toString());
 
-        int parada = 0 ;
+        //tag é uma etiqueta que identifica o grupo de informações que se quer apresentar.
     }
 }
