@@ -12,6 +12,9 @@ public class MainActivity extends AppCompatActivity {
     Pessoa pessoa; //CTRL+Espaço, cria o Objeto com o mesmo nome da Classe
     Pessoa outraPessoa;
 
+    String dadosPessoa;
+    String dadosOutraPessoa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,21 @@ public class MainActivity extends AppCompatActivity {
         outraPessoa.setSobreNome("Junior");
         outraPessoa.setCursoDesejado("Java");
         outraPessoa.setTelefoneContato("91991895467");
-int parada = 0;
+
+        dadosPessoa = "Primeiro Nome: ";
+        dadosPessoa += pessoa.getPrimeiroNome();
+        dadosPessoa += " Sobrenome: ";
+        dadosPessoa += pessoa.getSobreNome();
+        dadosPessoa += " Curso Desejado: ";
+        dadosPessoa += pessoa.getCursoDesejado();
+        dadosPessoa += " Telefone de Contato: ";
+        dadosPessoa += pessoa.getTelefoneContato();
+
+        dadosOutraPessoa = "Primeiro Nome: " + outraPessoa.getPrimeiroNome();
+        dadosOutraPessoa += " Sobrenome: " + outraPessoa.getSobreNome();
+        dadosOutraPessoa += " Curso Desejado: " + outraPessoa.getCursoDesejado();
+        dadosOutraPessoa += " Telefone de Contato: " + outraPessoa.getTelefoneContato();
+
+        int parada = 0 ;
     }
 }
