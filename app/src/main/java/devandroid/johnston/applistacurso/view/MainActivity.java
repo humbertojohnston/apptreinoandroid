@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import devandroid.johnston.applistacurso.R;
 import devandroid.johnston.applistacurso.model.Pessoa;
@@ -37,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
         pessoa = new Pessoa(); //criou o Objeto pessoa da Classe Pessoa
         outraPessoa = new Pessoa(); //criou o Objeto pessoa da Classe Pessoa
         //Atribuicao de valores para o objeto pessoa
-        pessoa.setPrimeiroNome("Humberto");
-        pessoa.setSobreNome("Pinheiro");
-        pessoa.setCursoDesejado("Android");
-        pessoa.setTelefoneContato("91981895467");
+        //pessoa.setPrimeiroNome("Humberto");
+        //pessoa.setSobreNome("Pinheiro");
+        //pessoa.setCursoDesejado("Android");
+        //pessoa.setTelefoneContato("91981895467");
 
         //Atribuicao de valores para o objeto outraPessoa
         outraPessoa.setPrimeiroNome("Johnston");
@@ -58,6 +60,40 @@ public class MainActivity extends AppCompatActivity {
         btnLimpar = findViewById(R.id.btnLimpar);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
+
+        //Implementação do botão btnLimpar
+        btnLimpar.setOnClickListener(new View.OnClickListener() { //criado uma instância view)
+            @Override
+            public void onClick(View view) {
+                editPrimeiroNome.setText("");
+                editSobrenome.setText("");
+                editNomeCurso.setText("");
+                editTelefoneContato.setText("");
+            }
+        });
+
+        //Implementação do botão btnFinalizar
+        btnFinalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "* PROGRAMA FINALIZADO *", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+
+        //Implementação do botão btnSalvar
+        btnSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Pegando os dados dos campos editText
+                pessoa.setPrimeiroNome(editPrimeiroNome.getText().toString());
+                pessoa.setSobreNome(editSobrenome.getText().toString());
+                pessoa.setCursoDesejado(editNomeCurso.getText().toString());
+                pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
+                Toast.makeText(MainActivity.this, "* SALVO *"+pessoa.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
 
         //Mostrando informações na tela
         editPrimeiroNome.setText(pessoa.getPrimeiroNome());
@@ -80,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         dadosOutraPessoa += " Curso Desejado: " + outraPessoa.getCursoDesejado();
         dadosOutraPessoa += " Telefone de Contato: " + outraPessoa.getTelefoneContato();
 */
+        //Para o TODO
         Log.i("POOAndroid","Objeto pessoa: "+pessoa.toString());
         Log.i("POOAndroid","Objeto outraPessoa: "+outraPessoa.toString());
 
