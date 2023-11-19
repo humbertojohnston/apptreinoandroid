@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     PessoaController controller; //criou-se uma instância
     Pessoa pessoa; //CTRL+Espaço, cria o Objeto com o mesmo nome da Classe
-    Pessoa outraPessoa;
 
     //Declarando EditText
     EditText editPrimeiroNome;
@@ -40,30 +39,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //arquivo de layout, instancia o layout, CTRL+B abre o layout (selecionando o activity_main)
 
-        preferences = getSharedPreferences(NOME_PREFERENCES,0);
+        preferences = getSharedPreferences(NOME_PREFERENCES, 0);
         //precisa informar duas coisas: o nome e o modo de acesso. 0 siginifica Escrita/Leitura
         //psfl atribui o nome ao arquivo
 
         SharedPreferences.Editor listaVip = preferences.edit(); //cria o arquivo e o deixa aberto para edição
 
-
         controller = new PessoaController();
         controller.toString(); //Método por Herança
 
         pessoa = new Pessoa(); //criou o Objeto pessoa da Classe Pessoa
-        outraPessoa = new Pessoa(); //criou o Objeto pessoa da Classe Pessoa
-
-        //Atribuicao de valores para o objeto outraPessoa
-        outraPessoa.setPrimeiroNome("Johnston");
-        outraPessoa.setSobreNome("Junior");
-        outraPessoa.setCursoDesejado("Java");
-        outraPessoa.setTelefoneContato("91991895467");
+        pessoa.setPrimeiroNome(preferences.getString("primeiroNome", "NULO"));
+        pessoa.setSobreNome(preferences.getString("sobreNome", "NULO"));
+        pessoa.setCursoDesejado(preferences.getString("cursoDesejado", "NULO"));
+        pessoa.setTelefoneContato(preferences.getString("telefoneContato", "NULO"));
 
         //Atribuição de dados ao EditText
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
         editSobrenome = findViewById(R.id.editSobrenome);
         editNomeCurso = findViewById(R.id.editNomeCurso);
         editTelefoneContato = findViewById(R.id.editTelefoneContato);
+
+        editPrimeiroNome.setText(pessoa.getPrimeiroNome());
+        editSobrenome.setText(pessoa.getSobreNome());
+        editNomeCurso.setText(pessoa.getCursoDesejado());
+        editTelefoneContato.setText(pessoa.getTelefoneContato());
 
         //Atribuição de dados ao Button
         btnLimpar = findViewById(R.id.btnLimpar);
@@ -109,21 +109,12 @@ public class MainActivity extends AppCompatActivity {
 
                 listaVip.apply();
 
-
                 controller.salvar(pessoa); //cria o método salvar na controladora
             }
         });
 
-        //Mostrando informações na tela
-        editPrimeiroNome.setText(pessoa.getPrimeiroNome());
-        editSobrenome.setText(pessoa.getSobreNome());
-        editNomeCurso.setText(pessoa.getCursoDesejado());
-        editTelefoneContato.setText(pessoa.getTelefoneContato());
-
-        //Para o TODO
+        //Para o Logcat
         Log.i("POOAndroid", "Objeto pessoa: " + pessoa.toString());
-        Log.i("POOAndroid", "Objeto outraPessoa: " + outraPessoa.toString());
-
         //tag é uma etiqueta que identifica o grupo de informações que se quer apresentar.
     }
 }
