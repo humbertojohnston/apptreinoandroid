@@ -17,6 +17,7 @@ import devandroid.johnston.applistacurso.model.Pessoa;
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences preferences; //preferences é o atributo
+    SharedPreferences.Editor listaVip;
     public static final String NOME_PREFERENCES = "pref_listavip"; //atribuição do nome do arquivo
 
     PessoaController controller; //criou-se uma instância
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         //precisa informar duas coisas: o nome e o modo de acesso. 0 siginifica Escrita/Leitura
         //psfl atribui o nome ao arquivo
 
-        SharedPreferences.Editor listaVip = preferences.edit(); //cria o arquivo e o deixa aberto para edição
+        listaVip = preferences.edit(); //cria o arquivo e o deixa aberto para edição
 
         controller = new PessoaController();
         controller.toString(); //Método por Herança
@@ -78,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
                 editSobrenome.setText("");
                 editNomeCurso.setText("");
                 editTelefoneContato.setText("");
+
+                listaVip.clear();
+                listaVip.apply();
             }
         });
 
