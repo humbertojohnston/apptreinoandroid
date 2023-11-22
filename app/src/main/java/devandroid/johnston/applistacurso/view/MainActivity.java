@@ -16,9 +16,10 @@ import devandroid.johnston.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
-    SharedPreferences preferences; //preferences é o atributo
-    SharedPreferences.Editor listaVip;
-    public static final String NOME_PREFERENCES = "pref_listavip"; //atribuição do nome do arquivo
+    //Passados para a controller
+    //SharedPreferences preferences; //preferences é o atributo
+    //SharedPreferences.Editor listaVip;
+    //public static final String NOME_PREFERENCES = "pref_listavip"; //atribuição do nome do arquivo
 
     PessoaController controller; //criou-se uma instância
     Pessoa pessoa; //CTRL+Espaço, cria o Objeto com o mesmo nome da Classe
@@ -40,20 +41,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //arquivo de layout, instancia o layout, CTRL+B abre o layout (selecionando o activity_main)
 
-        preferences = getSharedPreferences(NOME_PREFERENCES, 0);
+        //Passados para a controller
+        //preferences = getSharedPreferences(NOME_PREFERENCES, 0);
         //precisa informar duas coisas: o nome e o modo de acesso. 0 siginifica Escrita/Leitura
         //psfl atribui o nome ao arquivo
 
-        listaVip = preferences.edit(); //cria o arquivo e o deixa aberto para edição
+        //Passados para a controller
+        // listaVip = preferences.edit(); //cria o arquivo e o deixa aberto para edição
 
-        controller = new PessoaController();
+        controller = new PessoaController(MainActivity.this);
         controller.toString(); //Método por Herança
 
         pessoa = new Pessoa(); //criou o Objeto pessoa da Classe Pessoa
-        pessoa.setPrimeiroNome(preferences.getString("primeiroNome", "NULO"));
-        pessoa.setSobreNome(preferences.getString("sobreNome", "NULO"));
-        pessoa.setCursoDesejado(preferences.getString("cursoDesejado", "NULO"));
-        pessoa.setTelefoneContato(preferences.getString("telefoneContato", "NULO"));
+        //pessoa.setPrimeiroNome(preferences.getString("primeiroNome", "NULO"));
+        //pessoa.setSobreNome(preferences.getString("sobreNome", "NULO"));
+        //pessoa.setCursoDesejado(preferences.getString("cursoDesejado", "NULO"));
+        //pessoa.setTelefoneContato(preferences.getString("telefoneContato", "NULO"));
+        controller.buscar(pessoa);
 
         //Atribuição de dados ao EditText
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
@@ -80,8 +84,11 @@ public class MainActivity extends AppCompatActivity {
                 editNomeCurso.setText("");
                 editTelefoneContato.setText("");
 
-                listaVip.clear();
-                listaVip.apply();
+                //Passados para a controller
+                //listaVip.clear();
+                //listaVip.apply();
+
+                controller.limpar();
             }
         });
 
@@ -106,12 +113,12 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
                 Toast.makeText(MainActivity.this, "* SALVO *" + pessoa.toString(), Toast.LENGTH_LONG).show();
 
-                listaVip.putString("primeiroNome", pessoa.getPrimeiroNome()); //Salva o registro
-                listaVip.putString("sobreNome", pessoa.getSobreNome()); //Salva o registro
-                listaVip.putString("cursoDesejado", pessoa.getCursoDesejado()); //Salva o registro
-                listaVip.putString("telefoneContato", pessoa.getTelefoneContato()); //Salva o registro
-
-                listaVip.apply();
+                //Passados para a controller
+                //listaVip.putString("primeiroNome", pessoa.getPrimeiroNome()); //Salva o registro
+                //listaVip.putString("sobreNome", pessoa.getSobreNome()); //Salva o registro
+                //listaVip.putString("cursoDesejado", pessoa.getCursoDesejado()); //Salva o registro
+                //listaVip.putString("telefoneContato", pessoa.getTelefoneContato()); //Salva o registro
+                //listaVip.apply();
 
                 controller.salvar(pessoa); //cria o método salvar na controladora
             }
