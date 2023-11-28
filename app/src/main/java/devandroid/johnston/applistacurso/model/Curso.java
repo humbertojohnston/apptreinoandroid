@@ -4,8 +4,15 @@ public class Curso {
 
     private String nomeDoCursoDesejado;
 
+    public Curso(String nomeDoCursoDesejado) {
+
+        this.nomeDoCursoDesejado = nomeDoCursoDesejado;
+    }
+
     public String getNomeDoCursoDesejado() {
-        return nomeDoCursoDesejado;
+
+                return nomeDoCursoDesejado = nomeDoCursoDesejado ;
+
     }
 
     public void setNomeDoCursoDesejado(String nomeDoCursoDesejado) {

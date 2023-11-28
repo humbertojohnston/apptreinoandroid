@@ -10,8 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 import devandroid.johnston.applistacurso.R;
+import devandroid.johnston.applistacurso.controller.CursoController;
 import devandroid.johnston.applistacurso.controller.PessoaController;
+import devandroid.johnston.applistacurso.model.Curso;
 import devandroid.johnston.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
     //public static final String NOME_PREFERENCES = "pref_listavip"; //atribuição do nome do arquivo
 
     PessoaController controller; //criou-se uma instância
+    CursoController cursoController;
     Pessoa pessoa; //CTRL+Espaço, cria o Objeto com o mesmo nome da Classe
+
+    List<Curso> listaDeCursos; //O 'E' espere que se informe qual é o tipo de dado esperado
 
     //Declarando EditText
     EditText editPrimeiroNome;
@@ -51,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new PessoaController(MainActivity.this);
         controller.toString(); //Método por Herança
+
+        cursoController = new CursoController();
+        listaDeCursos = cursoController.getListaDeCursos();
 
         pessoa = new Pessoa(); //criou o Objeto pessoa da Classe Pessoa
         //pessoa.setPrimeiroNome(preferences.getString("primeiroNome", "NULO"));
