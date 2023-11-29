@@ -7,7 +7,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "devandroid.johnston.applistacurso"
+        applicationId "devandroid.johnston.appgaseta"
         minSdk 26
         targetSdk 33
         versionCode 1

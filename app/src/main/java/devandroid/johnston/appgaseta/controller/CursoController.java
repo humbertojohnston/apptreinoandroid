@@ -1,9 +1,9 @@
-package devandroid.johnston.applistacurso.controller;
+package devandroid.johnston.appgaseta.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import devandroid.johnston.applistacurso.model.Curso;
+import devandroid.johnston.appgaseta.model.Curso;
 
 public class CursoController {
 
