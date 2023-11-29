@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'devandroid.johnston.applistacurso'
+    namespace 'devandroid.johnston.appgaseta'
     compileSdk 33
 
     defaultConfig {
