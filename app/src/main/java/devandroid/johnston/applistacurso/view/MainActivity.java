@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_spinner);
         //arquivo de layout, instancia o layout, CTRL+B abre o layout (selecionando o activity_main)
 
         //Passados para a controller
