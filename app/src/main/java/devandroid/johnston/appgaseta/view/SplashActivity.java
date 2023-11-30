@@ -28,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
 
                 //Rotina para mudar de tela
-                Intent telaPrincipal = new Intent(SplashActivity.this, MainActivity.class);
+                Intent telaPrincipal = new Intent(SplashActivity.this, GasEtaActivity.class);
                 //'SplashActivity.this' onde eu estou e 'MainActivity.class' para onde eu vou.
                 startActivity(telaPrincipal); //chama a tela principal
                 finish(); //para não voltar para a tela Splash
