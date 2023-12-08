@@ -82,10 +82,14 @@ public class GasEtaActivity extends AppCompatActivity {
 
                     txtResultado.setText(recomendacao);
 
+                    btnSalvar.setEnabled(true);
+
                 } else {
 
                     Toast.makeText(GasEtaActivity.this,
                         "* CAMPOS DE PREENCHIMENTO OBRIGATÓRIO *", Toast.LENGTH_LONG).show();
+
+                    btnSalvar.setEnabled(false);
 
                 }
             }
@@ -98,6 +102,7 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 editEtanol.setText("");
                 editGasolina.setText("");
+                btnSalvar.setEnabled(false); //DESABILITA O BOTAO SALVAR
 
             }
         });
@@ -106,7 +111,7 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //TODO: DESABILITAR O BOTÃO SALVAR
+                //TODO: EditText inputType
 
                 combustivelGasolina = new Combustivel();
                 combustivelEtanol = new Combustivel();
