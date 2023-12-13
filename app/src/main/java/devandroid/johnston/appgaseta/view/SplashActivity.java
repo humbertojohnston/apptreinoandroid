@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import devandroid.johnston.appgaseta.R;
+import devandroid.johnston.appgaseta.database.GasEtaDB;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -26,6 +27,8 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() { //Digita-se RUN e em seguida <TAB> para criar a estrutura abaixo
             @Override
             public void run() {
+
+                GasEtaDB db = new GasEtaDB(SplashActivity.this);
 
                 //Rotina para mudar de tela
                 Intent telaPrincipal = new Intent(SplashActivity.this, GasEtaActivity.class);
