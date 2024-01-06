@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 import devandroid.johnston.appgaseta.R;
 import devandroid.johnston.appgaseta.apoio.UtilGasEta;
 import devandroid.johnston.appgaseta.controller.CombustivelController;
@@ -37,6 +39,8 @@ public class GasEtaActivity extends AppCompatActivity {
     double precoEtanol;
     String recomendacao;
 
+    List<Combustivel> dados;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +49,8 @@ public class GasEtaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gaseta); //APRESENTA O LAYOUT NA TELA
 
         controller = new CombustivelController(GasEtaActivity.this);
+
+        dados = controller.getListaDeDados();
 
         editGasolina = findViewById(R.id.editGasolina);
         editEtanol = findViewById(R.id.editEtanol);
